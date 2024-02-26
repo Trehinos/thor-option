@@ -1,0 +1,20 @@
+{
+    "name": "trehinos/thor-option",
+    "description": "An option-type for PHP 8.1 and above.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Thor\\Common\\Maybe\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Sébastien GELDREICH",
+            "email": "sebastien.geldreich@lafoirfouille.fr"
+        }
+    ],
+    "require": {
+        "php": "^8.1"
+    }
+}
