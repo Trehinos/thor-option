@@ -1,12 +1,12 @@
 # Option type in PHP 8.1+
 
-This package let you use an option (`Thor\Common\Maybe\Option`) type in PHP to handle cases when a value can or can not take a value.
+This package let you use an option (`Thor\Maybe\Option`) type in PHP to handle cases when a value can or can not take a value.
 
 The API of this module is intensively inspired by Rust's [Option type](https://doc.rust-lang.org/std/option/).
 
 ## Say goodbye to `null` values
 
-With `Thor\Common\Maybe\Option`, you can wrap any value (including `null`) and will never take back a `null`.
+With `Thor\Maybe\Option`, you can wrap any value (including `null`) and will never take back a `null`.
 
 ## Examples
 
