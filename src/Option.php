@@ -17,39 +17,39 @@ class Option
     public function is(): Maybe
     {
         if ($this->raw === null) {
-            return Maybe::None;
+            return Maybe::NONE;
         }
-        return Maybe::Some;
+        return Maybe::SOME;
     }
 
-    public function is_none(): bool
+    public function isNone(): bool
     {
-        return $this->is() === Maybe::None;
+        return $this->is() === Maybe::NONE;
     }
 
-    public function is_some(): bool
+    public function isSome(): bool
     {
-        return $this->is() === Maybe::Some;
+        return $this->is() === Maybe::SOME;
     }
 
     public function is_a(Maybe $maybe): bool
     {
         return match ($maybe) {
-            Maybe::Some => $this->is_some(),
-            Maybe::None => $this->is_none(),
+            Maybe::SOME => $this->isSome(),
+            Maybe::NONE => $this->isNone(),
         };
     }
 
     public function matches(callable $ifSome, callable $ifNone): mixed
     {
-        if ($this->is_some()) {
+        if ($this->isSome()) {
             return $ifSome($this->raw);
         } else {
             return $ifNone();
         }
     }
 
-    public function unwrap_or_else(callable $ifNone): mixed
+    public function unwrapOrElse(callable $ifNone): mixed
     {
         return $this->matches(
             fn(mixed $some) => $some,
@@ -57,17 +57,17 @@ class Option
         );
     }
 
-    public function unwrap_or(mixed $default): mixed
+    public function unwrapOr(mixed $default): mixed
     {
-        return $this->unwrap_or_else(fn() => $default);
+        return $this->unwrapOrElse(fn() => $default);
     }
 
     /**
      * @throws Throwable
      */
-    public function unwrap_or_throw(Throwable $t): mixed
+    public function unwrapOrThrow(Throwable $t): mixed
     {
-        return $this->unwrap_or_else(fn() => throw $t);
+        return $this->unwrapOrElse(fn() => throw $t);
     }
 
     /**
@@ -75,7 +75,7 @@ class Option
      */
     public function unwrap(): mixed
     {
-        return $this->unwrap_or_else(fn() => throw new \RuntimeException("Option : trying to unwrap a None value."));
+        return $this->unwrapOrElse(fn() => throw new \RuntimeException("Option : trying to unwrap a None value."));
     }
 
     public static function none(): self

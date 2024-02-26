@@ -11,6 +11,7 @@ With `Thor\Maybe\Option`, you can wrap any value (including `null`) and will nev
 ## Examples
 
 ### Playing with some data
+
 ```php
 use Thor\Maybe\Option;
 use Thor\Maybe\Maybe;
@@ -18,13 +19,13 @@ use Thor\Maybe\Maybe;
 $myOption = Option::from("data...");
 $myOption = Option::some("data...");
 
-if ($myOption->is_none()) {
+if ($myOption->isNone()) {
     // Never
 }
-if ($myOption->is_a(Maybe::None)) {
+if ($myOption->is_a(Maybe::NONE)) {
     // Never
 }
-if ($myOption->is() === Maybe::Some) {
+if ($myOption->is() === Maybe::SOME) {
     // Here we know we can unwrap().
     $myString = $myOption->unwrap();
 }
@@ -35,10 +36,11 @@ echo $myOption->matches(
     fn() => '',
 );
 // Or
-echo $myOption->unwrap_or('');
+echo $myOption->unwrapOr('');
 ```
 
 ### Handling `NONE` values
+
 ```php
 use Thor\Maybe\Option;
 
@@ -46,9 +48,9 @@ $myOption = Option::from(null);
 $myOption = Option::none();
 
 $value = $myOption->unwrap(); // Throws a RuntimeException
-$value = $myOption->unwrap_or_throw(new Exception("Custom Exception"));
-$value = $myOption->unwrap_or_else(fn() => 'default value from callable');
-$value = $myOption->unwrap_or('default value');
+$value = $myOption->unwrapOrThrow(new Exception("Custom Exception"));
+$value = $myOption->unwrapOrElse(fn() => 'default value from callable');
+$value = $myOption->unwrapOr('default value');
 ```
 
 ## Reference
