@@ -15,6 +15,7 @@ With `Thor\Common\Maybe\Option`, you can wrap any value (including `null`) and w
 use Thor\Maybe\Option;
 use Thor\Maybe\Maybe;
 
+$myOption = Option::from("data...");
 $myOption = Option::some("data...");
 
 if ($myOption->is_none()) {
@@ -29,10 +30,12 @@ if ($myOption->is() === Maybe::Some) {
 }
 
 // Echoes the string if it is not none, or an empty string if it is :
-$myOption->matches(
-    fn(string $str) => print($str),
+echo $myOption->matches(
+    fn(string $str) => $str,
     fn() => '',
 );
+// Or
+echo $myOption->unwrap_or('');
 ```
 
 ### Handling `NONE` values
