@@ -32,7 +32,7 @@ class Option
         return $this->is() === Maybe::SOME;
     }
 
-    public function is_a(Maybe $maybe): bool
+    public function isA(Maybe $maybe): bool
     {
         return match ($maybe) {
             Maybe::SOME => $this->isSome(),

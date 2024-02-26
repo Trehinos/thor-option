@@ -71,9 +71,9 @@ $value = $myOption->unwrapOr('default value');
 #### Informational methods
 
 - `$myOption->is()` : returns a `Maybe::SOME` or a `Maybe::NONE`,
-- `$myOption->is_none()` : returns `true` if the option is none, 
-- `$myOption->is_some()` : returns `true` if the option is some, 
-- `$myOption->is_a(Maybe $maybe)` : returns `true` if the option is corresponding the $maybe case.
+- `$myOption->isNone()` : returns `true` if the option is none, 
+- `$myOption->isSome()` : returns `true` if the option is some, 
+- `$myOption->isA(Maybe $maybe)` : returns `true` if the option is corresponding the $maybe case.
 
 #### Match
 
@@ -95,9 +95,9 @@ $myOption->matches(
 #### Unwrap methods
 
 - `$value = $myOption->unwrap()` : throws a RuntimeException if the value of the option is none,
-- `$value = $myOption->unwrap_or_throw(new Exception("Custom Exception"))` : throws the specified `Throwable` if the value of the option is none,
-- `$value = $myOption->unwrap_or_else(fn() => 'default value from callable')` : executes the callable in parameter if the value of the option is none and returns its returned value,
-- `$value = $myOption->unwrap_or('default value')` : returns the specified value if the value of the option is none.
+- `$value = $myOption->unwrapOrThrow(new Exception("Custom Exception"))` : throws the specified `Throwable` if the value of the option is none,
+- `$value = $myOption->unwrapOrElse(fn() => 'default value from callable')` : executes the callable in parameter if the value of the option is none and returns its returned value,
+- `$value = $myOption->unwrapOr('default value')` : returns the specified value if the value of the option is none.
 
 ## License
 
