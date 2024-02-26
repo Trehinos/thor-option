@@ -22,7 +22,7 @@ $myOption = Option::some("data...");
 if ($myOption->isNone()) {
     // Never
 }
-if ($myOption->is_a(Maybe::NONE)) {
+if ($myOption->isA(Maybe::NONE)) {
     // Never
 }
 if ($myOption->is() === Maybe::SOME) {
