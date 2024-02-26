@@ -94,8 +94,8 @@ $myOption->matches(
 - `$value = $myOption->unwrap_or_else(fn() => 'default value from callable')` : executes the callable in parameter if the value of the option is none and returns its returned value,
 - `$value = $myOption->unwrap_or('default value')` : returns the specified value if the value of the option is none.
 
-## Licence
+## License
 
 Copyright 2024 Sébastien GELDREICH
 
-Licence MIT
+License MIT
