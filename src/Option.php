@@ -3,6 +3,7 @@
 namespace Thor\Maybe;
 
 use Throwable;
+use RuntimeException;
 use InvalidArgumentException;
 
 class Option
@@ -75,7 +76,7 @@ class Option
      */
     public function unwrap(): mixed
     {
-        return $this->unwrapOrElse(fn() => throw new \RuntimeException("Option : trying to unwrap a None value."));
+        return $this->unwrapOrElse(fn() => throw new RuntimeException("Option : trying to unwrap a None value."));
     }
 
     public static function none(): self
