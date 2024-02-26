@@ -12,8 +12,8 @@ With `Thor\Common\Maybe\Option`, you can wrap any value (including `null`) and w
 
 ### Playing with some data
 ```php
-use Thor\Common\Maybe\Option;
-use Thor\Common\Maybe\Maybe;
+use Thor\Maybe\Option;
+use Thor\Maybe\Maybe;
 
 $myOption = Option::some("data...");
 
@@ -37,7 +37,7 @@ $myOption->matches(
 
 ### Handling `NONE` values
 ```php
-use Thor\Common\Maybe\Option;
+use Thor\Maybe\Option;
 
 $myOption = Option::from(null);
 $myOption = Option::none();
@@ -76,8 +76,8 @@ $value = $myOption->unwrap_or('default value');
 > or do something else if the value is none.
 
 ```php
-use Thor\Common\Maybe\Option;
-use Thor\Common\Maybe\Maybe;
+use Thor\Common\Option;
+use Thor\Common\Maybe;
 
 $myOption = Option::some("data...");
 

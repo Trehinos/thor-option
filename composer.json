@@ -5,7 +5,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Thor\\Common\\Maybe\\": "src/"
+            "Thor\\Maybe\\": "src/"
         }
     },
     "authors": [

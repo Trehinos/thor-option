@@ -1,6 +1,6 @@
 <?php
 
-namespace Thor\Common\Maybe;
+namespace Thor\Maybe;
 
 use Throwable;
 use InvalidArgumentException;
