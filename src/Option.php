@@ -72,7 +72,7 @@ class Option
     }
 
     /**
-     * @throws Throwable
+     * @throws RuntimeException
      */
     public function unwrap(): mixed
     {
@@ -86,6 +86,13 @@ class Option
         return $option;
     }
 
+    /**
+     * @param mixed $data
+     *
+     * @return self
+     *
+     * @throws InvalidArgumentException if $data is null.
+     */
     public static function some(mixed $data): self
     {
         if ($data === null) {
