@@ -17,14 +17,18 @@ use Thor\Maybe\Option;
 use Thor\Maybe\Maybe;
 
 $myOption = Option::from("data...");
+// Or
 $myOption = Option::some("data...");
 
 if ($myOption->isNone()) {
     // Never
 }
+// Or
 if ($myOption->isA(Maybe::NONE)) {
     // Never
 }
+
+// Unwrap the optional value
 if ($myOption->is() === Maybe::SOME) {
     // Here we know we can unwrap().
     $myString = $myOption->unwrap();
@@ -81,8 +85,8 @@ $value = $myOption->unwrapOr('default value');
 > or do something else if the value is none.
 
 ```php
-use Thor\Common\Option;
-use Thor\Common\Maybe;
+use Thor\Maybe\Option;
+use Thor\Maybe\Maybe;
 
 $myOption = Option::some("data...");
 
